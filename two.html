@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Student Registration Form</title>
+  <!-- <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+    }
+    form {
+      max-width: 400px;
+      margin-bottom: 20px;
+    }
+    label {
+      display: block;
+      margin-top: 10px;
+    }
+    input, select {
+      width: 100%;
+      padding: 8px;
+      margin-top: 5px;
+    }
+    #output {
+      margin-top: 20px;
+      background-color: #f0f0f0;
+      padding: 15px;
+      border-radius: 8px;
+    }
+  </style> -->
+</head>
+<body>
+
+  <h2>Student Registration Form</h2>
+  
+  <form id="studentForm">
+    <label for="studentId">Student ID</label>
+    <input type="text" id="studentId" required>
+
+    <label for="studentName">Name</label>
+    <input type="text" id="studentName" required>
+
+    <label for="gender">Gender</label>
+    <select id="gender" required>
+      <option value="">Select Gender</option>
+      <option value="Male">Male</option>
+      <option value="Female">Female</option>
+    </select>
+
+    <label for="department">Department</label>
+    <input type="text" id="department" required>
+
+    <label for="semester">Semester</label>
+    <input type="text" id="semester" required>
+
+    <button type="submit">Register</button>
+  </form>
+
+  <div id="output"></div>
+
+  <script>
+    document.getElementById("studentForm").addEventListener("submit", function(event) {
+      event.preventDefault(); // Stop form from submitting normally
+
+      // Get form values
+      const id = document.getElementById("studentId").value;
+      const name = document.getElementById("studentName").value;
+      const gender = document.getElementById("gender").value;
+      const dept = document.getElementById("department").value;
+      const sem = document.getElementById("semester").value;
+
+      // Display values using DOM
+      const outputDiv = document.getElementById("output");
+      outputDiv.innerHTML = `
+        <h3>Student Info</h3>
+        <p><strong>ID:</strong> ${id}</p>
+        <p><strong>Name:</strong> ${name}</p>
+        <p><strong>Gender:</strong> ${gender}</p>
+        <p><strong>Department:</strong> ${dept}</p>
+        <p><strong>Semester:</strong> ${sem}</p>
+      `;
+
+      // Optional: Reset form
+      document.getElementById("studentForm").reset();
+    });
+  </script>
+
+</body>
+</html>

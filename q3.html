@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function get_data() {
+            var std_id = document.form.id.value;
+            var name = document.form.name.value;
+            var sex = document.form.sex.value;
+            var dept = document.form.dept.value;
+            var sem = document.form.sem.value;
+
+            document.write("ID:" + std_id + "<br>" + "Name: " + name + "<br>" + "Sex: " + sex + "<br>" + "Dept: " + dept + "<br>" + "Sem: " + sem)
+        }
+    </script>
+
+    <form name="form">
+        <h4>Student registeration</h4>
+        <table>
+            <tr>
+                <td>Enter student Id</td>
+                <td><input type="text" name="id"></td>
+            </tr>
+            <tr>
+                <td>Enter student name</td>
+                <td><input type="text" name="name"></td>
+            </tr>
+            <tr>
+                <td>Sex</td>
+                <td><input type="radio" value="male" name="sex">Male</td>
+                <td><input type="radio" value="female" name="sex">Female</td>
+            </tr>
+            <tr>
+                <td>Enter student Dept</td>
+                <td><input type="text" name="dept"></td>
+            </tr>
+            <tr>
+                <td>Enter student semester</td>
+                <td><input type="text" name="sem"></td>
+            </tr>
+            <tr>
+                <td><input type="button" value="Submit" onclick="get_data()"></td>
+            </tr>
+        </table>
+    </form>
+</body>
+
+</html>

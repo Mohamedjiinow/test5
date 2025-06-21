@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Country and City Input</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+    }
+    form {
+      max-width: 300px;
+    }
+    input {
+      width: 100%;
+      padding: 8px;
+      margin-top: 5px;
+    }
+    label {
+      margin-top: 10px;
+      display: block;
+    }
+    button {
+      margin-top: 15px;
+      padding: 10px;
+    }
+    #result {
+      margin-top: 20px;
+      background-color: #f4f4f4;
+      padding: 10px;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Enter Your Location</h2>
+
+  <form id="locationForm">
+    <label for="country">Country:</label>
+    <input type="text" id="country" placeholder="Enter your country" required>
+
+    <label for="city">City:</label>
+    <input type="text" id="city" placeholder="Enter your city" required>
+
+    <button type="submit">Submit</button>
+  </form>
+
+  <div id="result"></div>
+
+  <script>
+    document.getElementById("locationForm").addEventListener("submit", function(event) {
+      event.preventDefault(); // Stop form from reloading the page
+
+      // Get input values
+      const country = document.getElementById("country").value;
+      const city = document.getElementById("city").value;
+
+      // Display result
+      document.getElementById("result").innerHTML = `
+        <h3>Your Location:</h3>
+        <p><strong>Country:</strong> ${country}</p>
+        <p><strong>City:</strong> ${city}</p>
+      `;
+
+      // Optional: Reset form
+      document.getElementById("locationForm").reset();
+    });
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function validate_email(){
+            var email = document.myform.email.value;
+
+            var atposition = email.indexOf('@');
+            dotposition = email.lastIndexOf(".");
+
+            if (atposition < 3 || dotposition < atposition+5 || dotposition+2 > email.length){
+                alert('Enter valid email');
+                return false;
+            }
+            else{
+                alert("You entered correct email address.");
+            }
+        }
+    </script>
+</head>
+<body>
+    <form name="myform">
+        <h4>Email validation form</h4>
+        <table>
+            <tr>
+                <td>Enter Email</td>
+                <td><input type="text" name="email"></td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="button" value="Sumit" onclick="validate_email()" style="background-color: blue; color: white; padding: 6px 10px; border: 0; font-size: 14px;">
+                </td>
+            </tr>
+        </table>
+    </form>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function validate()
+        {
+            var user =document.myform.user.value;
+                var pwd= document.myform.pwd.value;
+            if(user==null||user=="")
+        {
+            alert("user cannot be blank");
+            return false;
+        }
+        else  if(pwd.length<5)
+        {
+            alert("password can't be less than 5 character");
+            return false;
+        }
+        else{
+            return true;
+        }
+        }
+    </script>
+</head>
+<body>
+    <form name= myform action="" method="post">
+
+        <table>
+            <tr>
+                <td>user name</td>
+                <td><input type="text" name="user"/>
+                </td>
+            </tr>
+            <br>
+            <tr>
+                <td>password</td>
+                <td><input type="password"name="pwd"/>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="button" value="submit" onclick  ="validate()"/>
+                </td>
+            </tr>
+        </table>
+    </form>
+</body>
+</html>

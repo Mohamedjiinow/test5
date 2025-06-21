@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function validate(){
+            var user = document.form.user_name.value;
+            var pass = document.form.user_pass.value;
+
+            if(user == "" || user ==""){
+                alert("Please enter user name");
+            }
+            else if(pass == "" || pass.length < 6){
+                alert("Password must be more than 6 chars.");
+            }
+            else{
+                alert("Welcome congrats")
+            }
+        }
+    </script>
+
+    <form name="form">
+        <h4>User registeration form</h4>
+        <table>
+            <tr>
+                <td>User name</td>
+                <td><input type="text" name="user_name"></td>
+            </tr>
+             <tr>
+                <td>Password</td>
+                <td><input type="password" name="user_pass"></td>
+            </tr>
+             <tr>
+                <td><input type="button" value="submit" onclick="validate()" style="background-color: blue; color: white; padding: 6px 10px; border: 0; font-size: 14px;" ></td>
+            </tr>
+        </table>
+    </form>
+</body>
+</html>

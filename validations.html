@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Form Validations</title>
+  <style>
+    input, select {
+      display: block;
+      margin: 10px 0;
+      padding: 8px;
+    }
+    button {
+      padding: 8px 16px;
+    }
+    .error {
+      color: red;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Form Validation</h2>
+
+  <form id="myForm" onsubmit="return validateForm()">
+    <!-- 1. Name Required -->
+    <input type="text" id="name" placeholder="Full Name">
+
+    <!-- 2. Email Validation -->
+    <input type="text" id="email" placeholder="Email">
+
+    <!-- 3. Password Validation -->
+    <input type="password" id="password" placeholder="Password">
+
+    <!-- 4. Confirm Password -->
+    <input type="password" id="confirmPassword" placeholder="Confirm Password">
+
+    <!-- 5. Age (Number Validation) -->
+    <input type="text" id="age" placeholder="Age">
+
+    <!-- 6. Phone Number -->
+    <input type="text" id="phone" placeholder="Phone Number">
+
+    <!-- 7. Username Length -->
+    <input type="text" id="username" placeholder="Username">
+
+    <!-- 8. Dropdown Selection -->
+    <select id="gender">
+      <option value="Select">Select Gender</option>
+      <option value="Male">Male</option>
+      <option value="Female">Female</option>
+    </select>
+
+    <button type="submit">Submit</button>
+    <p class="error" id="errorMsg"></p>
+  </form>
+
+  <script>
+    function validateForm() {
+      let name = document.getElementById("name").value.trim();
+      let email = document.getElementById("email").value.trim();
+      let password = document.getElementById("password").value;
+      let confirmPassword = document.getElementById("confirmPassword").value;
+      let age = document.getElementById("age").value.trim();
+      let phone = document.getElementById("phone").value.trim();
+      let username = document.getElementById("username").value.trim();
+      let gender = document.getElementById("gender").value;
+      let error = document.getElementById("errorMsg");
+
+      // 1. Name required
+      if (name === "") {
+        error.textContent = "Name is required.";
+        return false;
+      }
+
+      // 2. Email must contain @ and .
+      if (!email.includes("@") || !email.includes(".")) {
+        error.textContent = "Enter a valid email.";
+        return false;
+      }
+
+      // 3. Password min length 8
+      if (password.length < 8) {
+        error.textContent = "Password must be at least 8 characters.";
+        return false;
+      }
+
+      // 4. Confirm Password
+      if (password !== confirmPassword) {
+        error.textContent = "Passwords do not match.";
+        return false;
+      }
+
+      // 5. Age must be number
+      if (isNaN(age) || age === "") {
+        error.textContent = "Enter a valid age.";
+        return false;
+      }
+
+      // 6. Phone: 10 digits only
+      if (phone.length !== 10 || isNaN(phone)) {
+        error.textContent = "Enter a valid 10-digit phone number.";
+        return false;
+      }
+
+      // 7. Username at least 4 characters
+      if (username.length < 4) {
+        error.textContent = "Username must be at least 4 characters.";
+        return false;
+      }
+
+      // 8. Gender must be selected
+      if (gender === "Select") {
+        error.textContent = "Please select a gender.";
+        return false;
+      }
+
+      error.textContent = "✅ All validations passed!";
+      error.style.color = "green";
+      return false; // set to true if you want actual form submit
+    }
+  </script>
+
+</body>
+</html>

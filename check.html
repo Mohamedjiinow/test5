@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+    function pwd(){
+        var pwd1= document.myform.pwd1.value;
+         var pwd2= document.myform.pwd2.value;
+         if(pwd1==pwd2)
+{
+    return true
+}
+else{
+    alert("password and re-type password must be the same");
+    return false;
+}    }
+
+
+    </script>
+   <style> 
+    input{
+        margin-left: 30px;
+    }
+      .submit{
+            padding: 7px 20px;
+            border-radius: 30px;
+            border: none;
+            background-color: orangered;
+            color: white;
+            font-size: 1.3em;
+        }
+   </style> 
+</head>
+<body>
+    <form name= "myform" action="">
+          password: <input type="text" name="pwd1"/> <br><br>
+        re-password:<input type="text" name="pwd2"/> <br> <br>
+        <input type="submit" value="Submit" onclick="pwd()" class="submit" />
+    </form>
+</body>
+</html>
